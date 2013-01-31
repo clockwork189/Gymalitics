@@ -1,0 +1,15 @@
+{
+  "name": "gymalitics",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app"
+  },
+  "dependencies": {
+    "express": "3.1.0",
+    "ejs": "0.8.3",
+	"socket.io": "0.9.13",
+	"mongoose": "3.5.5",
+	"express-ejs-layouts": "0.3.1"
+  }
+}

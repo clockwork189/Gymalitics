@@ -9,6 +9,7 @@ var express = require("express")
   , http = require("http")
   ,	expressLayouts = require("express-ejs-layouts")
   ,	fs = require("fs")
+  ,	User = require("./models/User.js")
   , path = require("path");
 
 var app = express();
@@ -39,8 +40,22 @@ app.get("/register", function(request, response) {
 });
 app.post("/signup", function(request, response) {
 	var email = request.body.email;
+	var firstname = request.body.firstname;
+	var lastname = request.body.lastname;
+	var height = request.body.height;
+	var weight = request.body.weight;
+	var username = request.body.username;
+	var password = request.body.password;
+	var confirmPassword = request.body.confirmPassword;
+	
+	// Verify if legit first
+
+	User.addUser(email, firstname, lastname, username, password, function(err, user) {
+		if (err) throw err;
+		response.redirect("/register");
+	});
 });
 
-http.createServer(app).listen(app.get('port'), function(){
-  console.log("Express server listening on port " + app.get('port'));
+http.createServer(app).listen(app.get("port"), function(){
+  console.log("Express server listening on port " + app.get("port"));
 });

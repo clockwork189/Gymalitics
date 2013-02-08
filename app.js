@@ -35,8 +35,17 @@ app.configure("development", function(){
 
 app.get("/", routes.index);
 app.get("/users", user.list);
+app.get("/about", function(request, response) {
+    response.render("about.ejs", { layout: "layout"});
+});
+app.get("/contact", function(request, response) {
+    response.render("contact.ejs", { layout: "layout"});
+});
 app.get("/register", function(request, response) {
     response.render("register.ejs", { layout: "layout"});
+});
+app.get("/overview", function(request, response) {
+    response.render("overview.ejs", { layout: "layout"});
 });
 app.get("/login", function(request, response) {
     response.render("login.ejs", { layout: "layout"});
@@ -45,17 +54,17 @@ app.post("/signup", function(request, response) {
     var email = request.body.email;
     var firstname = request.body.firstname;
     var lastname = request.body.lastname;
-    var height = request.body.height;
     var weight = request.body.weight;
+    var height_feet = request.body.height_feet;
+    var height_inches = request.body.height_inches;
+    var twitter_id = request.body.twitter_id;
     var username = request.body.username;
     var password = request.body.password;
     var confirmPassword = request.body.confirmPassword;
-    
-    // Verify if legit first
 
-    User.addUser(email, firstname, lastname, username, password, function(err, user) {
+    User.addUser(email, firstname, lastname, weight, height_feet, height_inches, twitter_id, username, password, function(err, user) {
         if (err) throw err;
-        response.redirect("/register");
+        response.redirect("/overview");
     });
 });
 

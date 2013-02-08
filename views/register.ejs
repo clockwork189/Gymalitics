@@ -31,7 +31,7 @@
 				            	<span class="prefix">@</span>
 				          	</div>
 				          	<div class="ten mobile-three columns">
-				            	<input type="text" placeholder="twitter_username">
+				            	<input type="text" name="twitter_id" placeholder="twitter_username">
 				          	</div>
 				        </div>
 				    </div>
@@ -50,8 +50,38 @@
 				    </div>
 	    		</div>
 				<div style="text-align:center;">
-					<input type="submit" class="button" value="Sign Up" />
+					<input type="button" id="sign_up" class="button" value="Sign Up" />
 				</div>
 			</form>
 		</div>
 	</div>
+	<script>
+		$("input.sign_up").click(function() {
+			var firstname = $("input[name=firstname").val();
+			var lastname = $("input[name=lastname").val();
+			var twitter_id = $("input[name=twitter_id").val();
+			var email = $("input[name=email").val();
+			var username = $("input[name=username").val();
+			var height_feet = $("input[name=height_feet").val();
+			var height_inches = $("input[name=height_inches").val();
+			var weight = $("input[name=weight").val();
+			var password = $("input[name=password").val();
+			var confirmPassword = $("input[name=confirmPassword").val();
+
+			if(!ValidateText(firstname)) {
+				
+			}
+		});
+
+		function ValidateText(text) {
+			if(isNaN(text) && text.length > 0) {
+				return true;
+			}
+		}
+
+		function ValidateNumbers(number) {
+			if(!isNaN(number) && number.length > 0) {
+				return true;
+			}
+		}
+	</script>

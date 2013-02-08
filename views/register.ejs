@@ -1,49 +1,57 @@
-	<hr>
-	<div class="jumbotron">
-		<h1>Wanna join the club?</h1>
-       	<p class="lead">Well, come on then! Fill up your information so that we can get you all setup. Yeah dont worry, all your info is safe with us! </p>
-   	</div>
-	<hr>
-	<div class="row-fluid marketing">
-		<div class="span12">
-        	<form action="/signup" method="post" class="form-horizontal">
-				<div class="control-group">
-					<label class="control-label">Email: </label>
-					<input type="text" name="email" /> <br/>
-				</div>
-				<div class="control-group">
-					<label>First Name: </label>
-					<input type="text" name="firstname" /> <br/>
-				</div>
-				<div class="control-group">
-					<label>Last Name: </label>
-					<input type="text" name="lastname" /> <br/>
-				</div>
-				<div class="control-group">
-					<label>Height: </label>
-					<input type="text" placeholder="Feet" class="input-small" name="height_feet" /> <br/>
-					<input type="text" placeholder="Inches" class="input-small" name="height_inches" /> <br/>
-				</div>
-				<div class="control-group">
-					<label>Weight: </label>
-					<input type="text" name="weight" /> <br/>
-				</div>
-				<div class="control-group">
+	<div class="row">
+		<div class="twelve columns">
+			<div class="row">
+				<h1>Wanna join the club?</h1>
+		       	<p class="lead">Well, come on then! Fill up your information so that we can get you all setup. Yeah dont worry, all your info is safe with us! </p>
+		   	</div>
+			<hr/>
+	    	<form action="/signup" method="post">
+	    		<div class="row">
 					<label>Username: </label>
-					<input type="text" name="username" /> <br/>
-				</div>
-				<div class="control-group">
+					<input type="text" name="username" />
+
 					<label>Password: </label>
-					<input type="password" name="password" /> <br/>
-				</div>
-				<div class="control-group">
+					<input type="password" name="password" />
+
 					<label>Confirm Password: </label>
-					<input type="password" name="confirmPassword" /> <br/>
-				</div>
-				<div class="control-group">
-					<input type="submit" value="Sign Up" /> <br/>
+					<input type="password" name="confirmPassword" />
+	    			<div class="six columns">
+		    			<label>Email</label>
+		    			<input type="text" name="email" />
+
+		    			<label>First Name: </label>
+						<input type="text" name="firstname"/>
+
+						<label>Last Name: </label>
+						<input type="text" name="lastname" />
+
+						<label>Twitter</label>
+				        <div class="row collapse">
+				          	<div class="two mobile-one columns">
+				            	<span class="prefix">@</span>
+				          	</div>
+				          	<div class="ten mobile-three columns">
+				            	<input type="text" placeholder="twitter_username">
+				          	</div>
+				        </div>
+				    </div>
+				    <div class="six columns">
+				    	<label>Height: </label>
+				    	<div class= "row">
+					    	<div class="five columns">
+								<input type="text" placeholder="Feet" class="input" name="height_feet" />
+							</div>
+							<div class="five columns">
+								<input type="text" placeholder="Inches" class="input" name="height_inches" />
+							</div>
+						</div>
+						<label>Weight: </label>
+						<input type="text" name="weight" placeholder="In pounds(lbs)"/>
+				    </div>
+	    		</div>
+				<div style="text-align:center;">
+					<input type="submit" class="button" value="Sign Up" />
 				</div>
 			</form>
 		</div>
-   	</div>
-	<hr>
+	</div>

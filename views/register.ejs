@@ -6,41 +6,42 @@
 	<hr>
 	<div class="row-fluid marketing">
 		<div class="span12">
-        	<form action="/signup" method="post">
-				<div>
-					<label>Email: </label>
+        	<form action="/signup" method="post" class="form-horizontal">
+				<div class="control-group">
+					<label class="control-label">Email: </label>
 					<input type="text" name="email" /> <br/>
 				</div>
-				<div>
+				<div class="control-group">
 					<label>First Name: </label>
 					<input type="text" name="firstname" /> <br/>
 				</div>
-				<div>
+				<div class="control-group">
 					<label>Last Name: </label>
 					<input type="text" name="lastname" /> <br/>
 				</div>
-				<div>
+				<div class="control-group">
 					<label>Height: </label>
-					<input type="text" name="height" /> <br/>
+					<input type="text" placeholder="Feet" class="input-small" name="height_feet" /> <br/>
+					<input type="text" placeholder="Inches" class="input-small" name="height_inches" /> <br/>
 				</div>
-				<div>
+				<div class="control-group">
 					<label>Weight: </label>
 					<input type="text" name="weight" /> <br/>
 				</div>
-				<div>
+				<div class="control-group">
 					<label>Username: </label>
 					<input type="text" name="username" /> <br/>
 				</div>
-				<div>
+				<div class="control-group">
 					<label>Password: </label>
 					<input type="password" name="password" /> <br/>
 				</div>
-				<div>
+				<div class="control-group">
 					<label>Confirm Password: </label>
 					<input type="password" name="confirmPassword" /> <br/>
 				</div>
-				<div>
-					<input type="submit" name="Next Step" /> <br/>
+				<div class="control-group">
+					<input type="submit" value="Sign Up" /> <br/>
 				</div>
 			</form>
 		</div>

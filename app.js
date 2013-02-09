@@ -41,6 +41,8 @@ app.get("/overview", routes.overview);
 app.get("/login", routes.login);
 app.get("/account_created", routes.account_created);
 app.post("/signup", routes.signup);
+app.post("/checkuser", routes.checkUser);
+app.post("/checkemail", routes.checkEmail);
 
 http.createServer(app).listen(app.get("port"), function(){
     console.log("Express server listening on port " + app.get("port"));

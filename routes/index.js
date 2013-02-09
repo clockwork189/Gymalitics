@@ -28,6 +28,11 @@ exports.account_created = function(request, response) {
     response.render("success.ejs", { layout: "layout"});
 };
 
+exports.test = function(request, response) {
+    
+    response.render("success.ejs", { layout: "layout"});
+};
+
 exports.signup = function(request, response) {
     var email = request.body.email;
     var firstname = request.body.firstname;
@@ -39,9 +44,39 @@ exports.signup = function(request, response) {
     var username = request.body.username;
     var password = request.body.password;
     var confirmPassword = request.body.confirmPassword;
-
+    
     User.addUser(email, firstname, lastname, weight, height_feet, height_inches, twitter_id, username, password, function(err, user) {
         if (err) throw err;
         response.redirect("/account_created");
+    });
+
+};
+
+exports.checkUser = function(request, response) {
+    var username = request.body.user;
+    var isUserFound = false;
+
+    User.getUser(username, function(user) {
+        console.log("In callback");
+        if(user !== undefined && user !== null) {
+            isUserFound = true;
+        } else {
+            isUserFound = false;
+        }
+        response.json({ userExists: isUserFound});
+    });
+};
+
+exports.checkEmail = function (request, response) {
+    var email = request.body.email;
+    var isEmailFound = false;
+
+    User.getUserByEmail(email, function(email_address) {
+        if(email_address !== undefined && email_address !== null) {
+            isEmailFound = true;
+        } else {
+            isEmailFound = false;
+        }
+        response.json({ emailExists: isEmailFound});
     });
 };

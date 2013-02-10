@@ -1,7 +1,8 @@
 var User = require("./../models/User.js");
+var Workout = require("./../models/Workout.js");
 
 exports.index = function(request, response){
-    response.render('index', { title: 'Express' });
+    response.render('index', { layout: 'layout' });
 };
 
 exports.about = function(request, response){
@@ -48,7 +49,6 @@ exports.signup = function(request, response) {
         if (err) throw err;
         response.redirect("/account_created");
     });
-
 };
 
 exports.userLogin = function(request, response) {
@@ -90,5 +90,19 @@ exports.checkEmail = function (request, response) {
             isEmailFound = false;
         }
         response.json({ emailExists: isEmailFound});
+    });
+};
+
+exports.logWorkout = function (request, response) {
+    var workout_name = request.body.workout_name;
+    var day = request.body.day;
+    var reps = request.body.reps;
+    var sets = request.body.sets;
+    var weight = request.body.weight;
+    var username = request.session.username;
+    
+    Workout.addWorkout(username, workout_name, day, reps, sets, weight, function(err, user) {
+        if (err) throw err;
+        response.redirect("/account_created");
     });
 };

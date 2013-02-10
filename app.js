@@ -53,6 +53,7 @@ app.post("/signup", routes.signup);
 app.post("/user_login", routes.userLogin);
 app.post("/checkuser", routes.checkUser);
 app.post("/checkemail", routes.checkEmail);
+app.post("/log_workout", routes.logWorkout);
 
 http.createServer(app).listen(app.get("port"), function(){
     console.log("Express server listening on port " + app.get("port"));

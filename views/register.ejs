@@ -1,3 +1,8 @@
+	<script>
+	    <% if(session.userLoggedIn) { %>
+	        window.location.href="/overview";
+	    <% } %>
+	</script>
 	<div class="row">
 		<div class="twelve columns">
 			<div class="row">
@@ -7,59 +12,61 @@
 			<hr/>
 	    	<form action="/signup" method="post" id="signup">
 	    		<div class="row">
-					<div class="fields username">
-						<label>Username: </label>
-						<input type="text" name="username" />
-					</div>
-					<div class="fields password">
-						<label>Password: </label>
-						<input type="password" name="password" />
-					
-						<label>Confirm Password: </label>
-						<input type="password" name="confirmPassword" />
-					</div>
-	    			<div class="six columns">
-	    				<div class="fields email">
-		    				<label>Email</label>
-		    				<input type="text" name="email" />
-		    			</div>
-		    			<div class="fields first_name">
-		    				<label>First Name: </label>
-							<input type="text" name="firstname"/>
+	    			<div class="twelve columns">
+						<div class="fields username">
+							<label>Username: </label>
+							<input type="text" name="username" />
 						</div>
-						<div class="fields last_name">
-							<label>Last Name: </label>
-							<input type="text" name="lastname" />
+						<div class="fields password">
+							<label>Password: </label>
+							<input type="password" name="password" />
+						
+							<label>Confirm Password: </label>
+							<input type="password" name="confirmPassword" />
 						</div>
-						<div class="fields twitter">
-							<label>Twitter</label>
-					        <div class="row collapse">
-					          	<div class="two mobile-one columns">
-					            	<span class="prefix">@</span>
-					          	</div>
-					          	<div class="ten mobile-three columns">
-					            	<input type="text" name="twitter_id" placeholder="twitter_username">
-					          	</div>
-					        </div>
+		    			<div class="six columns">
+		    				<div class="fields email">
+			    				<label>Email</label>
+			    				<input type="text" name="email" />
+			    			</div>
+			    			<div class="fields first_name">
+			    				<label>First Name: </label>
+								<input type="text" name="firstname"/>
+							</div>
+							<div class="fields last_name">
+								<label>Last Name: </label>
+								<input type="text" name="lastname" />
+							</div>
 					    </div>
-				    </div>
-				    <div class="six columns">
-				    	<div class="fields height">
-				    		<label>Height: </label>
-					    	<div class= "row">
-						    	<div class="five columns">
-									<input type="number" placeholder="Feet" class="input" name="height_feet" />
-								</div>
-								<div class="five columns">
-									<input type="number" placeholder="Inches" class="input" name="height_inches" />
+					    <div class="six columns">
+					    	<div class="fields height">
+					    		<label>Height: </label>
+						    	<div class= "row">
+							    	<div class="five columns">
+										<input type="number" placeholder="Feet" class="input" name="height_feet" />
+									</div>
+									<div class="five columns">
+										<input type="number" placeholder="Inches" class="input" name="height_inches" />
+									</div>
 								</div>
 							</div>
-						</div>
-						<div class="fields weight">
-							<label>Weight: </label>
-							<input type="number" name="weight" placeholder="In pounds(lbs)"/>
-						</div>
-				    </div>
+							<div class="fields weight">
+								<label>Weight: </label>
+								<input type="number" name="weight" placeholder="In pounds(lbs)"/>
+							</div>
+							<div class="fields twitter">
+								<label>Twitter</label>
+						        <div class="row collapse">
+						          	<div class="two mobile-one columns">
+						            	<span class="prefix">@</span>
+						          	</div>
+						          	<div class="ten mobile-three columns">
+						            	<input type="text" name="twitter_id" placeholder="twitter_username">
+						          	</div>
+						        </div>
+						    </div>
+					    </div>
+					</div>
 	    		</div>
 				<div style="text-align:center;">
 					<input type="button" id="sign_up" class="button" value="Sign Up" />

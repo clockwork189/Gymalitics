@@ -3,14 +3,14 @@
  * Module dependencies.
  */
 
-var express = require("express")
-  , routes = require("./routes")
-  , user = require("./routes/user")
-  , http = require("http")
-  , expressLayouts = require("express-ejs-layouts")
-  , fs = require("fs")
-  , User = require("./models/User.js")
-  , path = require("path");
+var express = require("express"),
+    routes = require("./routes"),
+    user = require("./routes/user"),
+    http = require("http"),
+    expressLayouts = require("express-ejs-layouts"),
+    fs = require("fs"),
+    User = require("./models/User.js"),
+    path = require("path");
 
 var app = express();
 
@@ -25,6 +25,13 @@ app.configure(function(){
     app.use(express.logger("dev"));
     app.use(express.bodyParser());
     app.use(express.methodOverride());
+    app.use(express.cookieParser('spiderman'));
+    app.use(express.cookieSession());
+    app.use(express.session());
+    app.use(function(req, res, next){
+        res.locals.session = req.session;
+        next();
+    });
     app.use(app.router);
     app.use(express.static(__dirname, "public"));
 });
@@ -40,7 +47,10 @@ app.get("/register", routes.register);
 app.get("/overview", routes.overview);
 app.get("/login", routes.login);
 app.get("/account_created", routes.account_created);
+app.get("/user_login", routes.login);
+app.get("/track", routes.track);
 app.post("/signup", routes.signup);
+app.post("/user_login", routes.userLogin);
 app.post("/checkuser", routes.checkUser);
 app.post("/checkemail", routes.checkEmail);
 

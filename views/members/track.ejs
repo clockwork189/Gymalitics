@@ -1,0 +1,50 @@
+    <script>
+        <% if(!session.userLoggedIn) { %>
+            window.location.href="/login";
+        <% } %>
+    </script>
+    <div class="row">
+        <div class="twelve columns">
+            <div class="row">
+                <h3>Track your workouts</h3>
+                <p class="lead">Recently completed a workout? Forgot to log your previous workouts? Well, what are you waiting for? Your workouts arent gonna track themselves! </p>
+            </div>
+            <hr/>
+            <form action="/log_workout" method="post" id="log_workout">
+                <div class="row">
+                    <div class="twelve columns">
+                        <div class="fields workout">
+                            <label>Workout Name: </label>
+                            <input type="text" name="workout_name" />
+                        </div>
+                        <div class="fields day">
+                            <label>Workout Day: </label>
+                            <input type="password" name="day" />
+                        </div>
+                        <div class="four columns">
+                            <div class="fields email">
+                                <label>Reps</label>
+                                <input type="text" name="reps" />
+                            </div>
+                        </div>
+                        <div class="four columns">
+                            <div class="fields sets">
+                                <label>Sets</label>
+                                <input type="text" name="sets" />
+                            </div>
+                        </div>
+                        <div class="four columns">
+                            <div class="fields weight">
+                                <label>Weight</label>
+                                <input type="text" name="weight" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="text-align:center;">
+                    <input type="button" id="log" class="button" value="Log Workout" />
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="../libraries/track.js"></script>

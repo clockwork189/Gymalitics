@@ -4,20 +4,28 @@
                 <li class="name"><h1><a href="/">Gymalitics</a></h1></li>
                 <li class="toggle-topbar"><a href="#"></a></li>
             </ul>
-
             <section>
                 <ul class="left">
                     <li class="active home"><a href="/">Home</a></li>
                     <li class="about"><a href="/about">About</a></li>
                     <li class="contact"><a href="/contact">Contact</a></li>
                 </ul>
-
                 <ul class="right">
                     <li class="has-dropdown">
-                        <a href="#">Users</a>
+                        <% if(session.userLoggedIn) { %>
+                            <a href="#">Hi <%= session.username %>!</a>
+                        <% } else { %>
+                            <a href="#">Users</a>
+                        <% } %>
                         <ul class="dropdown">
-                            <li><a href="/login">Login</a></li>
-                            <li><a href="/register">Sign Up</a></li>
+                            <% if(session.userLoggedIn) { %>
+                                <li><a href="/overview">Overview</a></li>
+                                <li><a href="/track">Track Workouts</a></li>
+                                <li><a href="/logout">Log Out</a></li>
+                            <% } else { %>
+                                <li><a href="/login">Login</a></li>
+                                <li><a href="/register">Sign Up</a></li>
+                            <% } %>
                         </ul>
                     </li>
                 </ul>

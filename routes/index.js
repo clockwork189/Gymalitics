@@ -13,24 +13,23 @@ exports.contact =  function(request, response) {
 };
 
 exports.register = function(request, response) {
-    response.render("register.ejs", { layout: "layout"});
+    response.render("register.ejs", { layout: "layout" });
 };
 
 exports.overview = function(request, response) {
-    response.render("overview.ejs", { layout: "layout"});
+    response.render("members/overview.ejs", { layout: "layout"});
 };
 
 exports.login = function(request, response) {
-    response.render("login.ejs", { layout: "layout"});
+    response.render("login.ejs", { layout: "layout", error: ""});
 };
 
 exports.account_created = function(request, response) {
     response.render("success.ejs", { layout: "layout"});
 };
 
-exports.test = function(request, response) {
-    
-    response.render("success.ejs", { layout: "layout"});
+exports.track = function(request, response) {
+    response.render("members/track.ejs", { layout: "layout"});
 };
 
 exports.signup = function(request, response) {
@@ -52,12 +51,25 @@ exports.signup = function(request, response) {
 
 };
 
+exports.userLogin = function(request, response) {
+    var username = request.body.username;
+    var password = request.body.password;
+    User.userLogin(username, password, function(user) {
+        if(user.length !== 0) {
+            request.session.username = username;
+            request.session.userLoggedIn = true;
+            response.redirect("/overview");
+        } else {
+            response.render("login.ejs", { layout: "layout", error: "Invalid Username or Password"});
+        }
+    });
+};
+
 exports.checkUser = function(request, response) {
     var username = request.body.user;
     var isUserFound = false;
 
     User.getUser(username, function(user) {
-        console.log("In callback");
         if(user !== undefined && user !== null) {
             isUserFound = true;
         } else {

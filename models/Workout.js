@@ -1,6 +1,6 @@
 var db = require("../lib/db");
 
-var WorkoutSchema = new db.Workout({
+var WorkoutSchema = new db.Schema({
     username: String,
     workoutname: String,
     workoutday: Date,
@@ -10,7 +10,7 @@ var WorkoutSchema = new db.Workout({
     date_created: Date
 });
 
-var Workout = db.mongoose.model("Workouts", Workout);
+var Workout = db.mongoose.model("Workouts", WorkoutSchema);
 
 module.exports.addWorkout = addWorkout;
 module.exports.getUsersWorkouts = getUsersWorkouts;

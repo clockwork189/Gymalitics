@@ -101,8 +101,8 @@ exports.logWorkout = function (request, response) {
     var weight = request.body.weight;
     var username = request.session.username;
     
-    Workout.addWorkout(username, workout_name, day, reps, sets, weight, function(err, user) {
+    Workout.addWorkout(username, workout_name, day, reps, sets, weight, function(err, workout) {
         if (err) throw err;
-        response.redirect("/account_created");
+        response.render("track.ejs");
     });
 };
